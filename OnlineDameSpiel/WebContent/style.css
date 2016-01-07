@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.headerUL li{
+	list-style-type:none;
+	height:30px;
+	width: 180px;
+	line-height: 30px;
+	text-align: center;
+	border: solid 1px #000;
+	background: #aaa;
+	display: inline-block;
+	margin:0;
+	padding:0;
+}
+.headerUL a{
+	text-decoration: none;
+	color: #fff;
+}
+.headerUL a:hover{
+	font-weight: bold;
+}

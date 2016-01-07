@@ -1,1 +1,25 @@
-<header>HEADER</header>
+<header>
+<ul class="headerUL">
+	<a href="Steuerung" name="csv"><li>Speichern als CSV</li></a>
+	<a href="Steuerung" name="ser"><li>Speichern als SER</li></a>
+	<a href="Steuerung" name="email"><li>E-Mail Versand</li></a>
+	<a href="Steuerung" name="pdf"><li>PDF erstellen</li></a>
+	<a href="Steuerung" name="laden"><li>Spiel laden</li></a>
+	<a href="Steuerung" name="speichern"><li>Spiel speichern</li></a>
+</ul>
+
+
+<!--
+<form id="" name="headerForm" method="get" action="Steuerung">
+	<input type="submit" value="Speichern als CSV" name="csv">
+	<input type="submit" value="Speichern als SER" name="ser">
+	<input type="submit" value="E-Mail Versand" name="email">
+	<input type="submit" value="PDF erstellen" name="pdf">
+	
+	<input type="submit" value="Spiel laden" name="laden">
+	<input type="submit" value="Spiel speichern" name="speichern">
+	<input type="submit" value="Neues Spiel beginnen" name="neu">
+</form>
+-->
+
+</header>
