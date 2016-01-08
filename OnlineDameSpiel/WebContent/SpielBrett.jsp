@@ -10,12 +10,15 @@ table {
 	border-collapse: collapse;
 }
 
-td {
+td, a{
 	display: inline-block;
 	width: 50px;
 	height: 50px;
 	min-width: 50px;
 	min-height: 50px;
+}
+a:hover{
+	background: green;
 }
 </style>
 </head>
@@ -29,11 +32,14 @@ td {
 				for (int j = 0; j <= 11; j++) {
 						if (i % 2 == j % 2) {
 			%>
-			<td style="background: brown">2</td>
+			
+				<td style="background: brown"><a href="SpielZug"></a></td>
+		
 			<%
 				} else {
 			%>
-			<td style="background: beige">2</td>
+			
+				<td style="background: beige"><a href="SpielZug"></a></td>
 			<%
 				}
 					}
@@ -43,5 +49,6 @@ td {
 			}
 		%>
 	</table>
+
 </body>
 </html>
