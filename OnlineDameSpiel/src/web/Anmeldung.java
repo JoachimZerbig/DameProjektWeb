@@ -33,25 +33,23 @@ public class Anmeldung extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.doPost(request, response);
 
-		//Wenn Spiel bereits vorhanden
+		//Wenn Spiel noch nicht vorhanden
 		if(getServletContext().getAttribute("spiel")== null){
 		SpielBean spiel = new SpielBean();
 		String name = request.getParameter("spname");
-		String farbe = request.getParameter("farbe");
+		String farbe1 = request.getParameter("farbe");
 		String typ = request.getParameter("typ");
 		String abschicken = request.getParameter("abschicken");
 		
 		
-		
-		if (name == null && farbe == null && typ == null) {
+		if (name == null && farbe1 == null && typ == null) {
 			getServletContext().getRequestDispatcher("/FormularSpiel.jsp").forward(request, response);
 		} 
-		else if(name.length() < 3 || farbe == null || typ == null){
+		else if(name.length() < 3 || farbe1 == null || typ == null){
 			getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
 		}
-		if(name.length() >= 3 && farbe != null && typ != null && abschicken != null) {
+		if(name.length() >= 3 && farbe1 != null && typ != null && abschicken != null) {
 			Spieler spieler1 = new Spieler(name);
-			String sessionID;
 			
 			//IP-Adresse
 			InetAddress ip = InetAddress.getLocalHost ();
@@ -59,25 +57,25 @@ public class Anmeldung extends HttpServlet {
 			getServletContext().setAttribute("ID", ipAdress);
 			getServletContext().setAttribute("spieler1",spieler1);
 			getServletContext().setAttribute("spiel",spiel);
-			
-	
-			HttpSession session = request.getSession();
-			request.getSession(true);
-			sessionID = session.getId();
-
-			session.setAttribute("spiel", spiel);
-			session.setAttribute("spieler", spieler1);
-
+			getServletContext().setAttribute("farbe1",farbe1);
 			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 		}	
 		}
 		else if(getServletContext().getAttribute("spiel")!= null){
 			SpielBean spiel = (SpielBean) getServletContext().getAttribute("spiel");
 			Spieler spieler1 = (Spieler) getServletContext().getAttribute("spieler1");
-			String farbe1 = request.getParameter("farbe");
-
-			//Überprüfung Farbe Spieler1 
-			if(spieler1){
+			String farbe1 = (String) getServletContext().getAttribute("farbe1");
+			
+			//Syso zeigt "on" auf der Console -.-
+			System.out.println(farbe1);
+			
+			
+			if(farbe1.equals("schwarz")){
+			spieler1.setFarbe(FarbEnum.schwarz);
+			getServletContext().getRequestDispatcher("/FormularSpiel2w.jsp").forward(request, response);
+			}
+			if(farbe1.equals("weiss")){
+			spieler1.setFarbe(FarbEnum.weiss);	
 			getServletContext().getRequestDispatcher("/FormularSpiel2s.jsp").forward(request, response);
 			}
 			
