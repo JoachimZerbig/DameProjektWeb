@@ -1,3 +1,4 @@
+<%@page import="java.net.Inet4Address"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE>
@@ -16,5 +17,4 @@
 </form>
 <%@ include file="Footer.jspf" %>
 </body>
-
 </html>
