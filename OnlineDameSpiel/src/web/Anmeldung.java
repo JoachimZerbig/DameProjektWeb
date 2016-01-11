@@ -46,20 +46,22 @@ public class Anmeldung extends HttpServlet {
 		}
 		if(name.length() >= 3 && farbe != null && typ != null && abschicken != null) {
 			Spieler spieler = new Spieler(name);
-			spiel.setActiveSpieler(spieler);
-			HttpSession session = request.getSession();
 			String sessionID;
+			boolean sessionGesetzt = false;
+			if(sessionGesetzt){
+				//spiel
+			}
+//			spiel.setActiveSpieler(spieler);
+			HttpSession session = request.getSession();
 			request.getSession(true);
 			sessionID = session.getId();
+			sessionGesetzt = true;
 			System.out.println(sessionID);
 
 			session.setAttribute("spiel", spiel);
 			session.setAttribute("spieler", spieler);
 			
 			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
-			
-			
-			
 			
 		}
 	}

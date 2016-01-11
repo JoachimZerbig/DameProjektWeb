@@ -25,10 +25,8 @@ a:hover {
 }
 textarea{
 	display: block;
-	width: 680px;
+	width: 625px;
 	height: 150px;
-	min-width: 680px;
-	min-height: 150px;
 	margin: 0 auto;
 	text-align: center;
 }
@@ -47,15 +45,14 @@ textarea{
 			%>
 
 			<td style="background: brown">
-				<a href="SpielZug" name="<%out.print(ij);%>"></a></td>
+				<a href="SpielZug?zug=<%out.print(ij);%>"><%out.print(ij);%></a></td>
 
 			<%
 				} else {
 			%>
 
 			<td style="background: beige">
-				<a href="SpielZug" name="<%out.print(ij);%>"></a>
-			</td>
+				<a href="SpielZug?zug=<%out.print(ij);%>"><%out.print(ij);%></a></td>
 			<%
 				}
 					}

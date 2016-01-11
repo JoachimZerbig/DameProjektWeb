@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,6 +27,11 @@ public class SpielZug extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("test");
+		
+		String zug = request.getParameter("zug");
+		System.out.println(zug);
+		getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
+		
 	}
 
 	/**
