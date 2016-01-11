@@ -40,8 +40,7 @@ public class Anmeldung extends HttpServlet {
 		String farbe1 = request.getParameter("farbe");
 		String typ = request.getParameter("typ");
 		String abschicken = request.getParameter("abschicken");
-		
-		
+
 		if (name == null && farbe1 == null && typ == null) {
 			getServletContext().getRequestDispatcher("/FormularSpiel.jsp").forward(request, response);
 		} 
@@ -60,15 +59,12 @@ public class Anmeldung extends HttpServlet {
 			getServletContext().setAttribute("farbe1",farbe1);
 			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 		}	
+		
 		}
 		else if(getServletContext().getAttribute("spiel")!= null){
 			SpielBean spiel = (SpielBean) getServletContext().getAttribute("spiel");
 			Spieler spieler1 = (Spieler) getServletContext().getAttribute("spieler1");
 			String farbe1 = (String) getServletContext().getAttribute("farbe1");
-			
-			//Syso zeigt "on" auf der Console -.-
-			System.out.println(farbe1);
-			
 			
 			if(farbe1.equals("schwarz")){
 			spieler1.setFarbe(FarbEnum.schwarz);
