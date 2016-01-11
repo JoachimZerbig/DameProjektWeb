@@ -19,7 +19,6 @@ public class SpielZug extends HttpServlet {
      */
     public SpielZug() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

@@ -36,6 +36,7 @@ public class Anmeldung extends HttpServlet {
 		String name = request.getParameter("spname");
 		String farbe = request.getParameter("farbe");
 		String typ = request.getParameter("typ");
+		String abschicken = request.getParameter("abschicken");
 
 		if (name == null && farbe == null && typ == null) {
 			getServletContext().getRequestDispatcher("/FormularSpiel.jsp").forward(request, response);
@@ -43,16 +44,23 @@ public class Anmeldung extends HttpServlet {
 		else if(name.length() < 3 || farbe == null || typ == null){
 			getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
 		}
-		if(name.length() >= 3 && farbe != null && typ != null) {
+		if(name.length() >= 3 && farbe != null && typ != null && abschicken != null) {
 			Spieler spieler = new Spieler(name);
 			spiel.setActiveSpieler(spieler);
 			HttpSession session = request.getSession();
 			String sessionID;
 			request.getSession(true);
 			sessionID = session.getId();
+			System.out.println(sessionID);
 
 			session.setAttribute("spiel", spiel);
 			session.setAttribute("spieler", spieler);
+			
+			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
+			
+			
+			
+			
 		}
 	}
 
