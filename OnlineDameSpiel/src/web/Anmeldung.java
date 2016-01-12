@@ -30,59 +30,58 @@ public class Anmeldung extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		this.doPost(request, response);
+//		if (getServletContext().getAttribute("spiel") != null) {
 
-		//Wenn Spiel noch nicht vorhanden
-		if(getServletContext().getAttribute("spiel")== null){
-		SpielBean spiel = new SpielBean();
-		String name = request.getParameter("spname");
-		String farbe1 = request.getParameter("farbe");
-		String typ = request.getParameter("typ");
-		String abschicken = request.getParameter("abschicken");
+			// Wenn Spiel noch nicht vorhanden
+			if (getServletContext().getAttribute("spiel") == null) {
+				SpielBean spiel = new SpielBean();
+				String name1 = request.getParameter("spname");
+				String farbe1 = request.getParameter("farbe");
+				String typ1 = request.getParameter("typ");
+				String abschicken = request.getParameter("abschicken");
 
-		if (name == null && farbe1 == null && typ == null) {
-			getServletContext().getRequestDispatcher("/FormularSpiel.jsp").forward(request, response);
-		} 
-		else if(name.length() < 3 || farbe1 == null || typ == null){
-			getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
-		}
-		if(name.length() >= 3 && farbe1 != null && typ != null && abschicken != null) {
-			Spieler spieler1 = new Spieler(name);
-			
-			//IP-Adresse
-			InetAddress ip = InetAddress.getLocalHost ();
-			String ipAdress = ip.getHostAddress();
-			getServletContext().setAttribute("ID", ipAdress);
-			getServletContext().setAttribute("spieler1",spieler1);
-			getServletContext().setAttribute("spiel",spiel);
-			getServletContext().setAttribute("farbe1",farbe1);
-			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
-		}	
-		
-		}
-		else if(getServletContext().getAttribute("spiel")!= null){
-			SpielBean spiel = (SpielBean) getServletContext().getAttribute("spiel");
-			Spieler spieler1 = (Spieler) getServletContext().getAttribute("spieler1");
-			String farbe1 = (String) getServletContext().getAttribute("farbe1");
-			
-			if(farbe1.equals("schwarz")){
-			spieler1.setFarbe(FarbEnum.schwarz);
+				if (name1 == null && farbe1 == null && typ1 == null) {
+					getServletContext().getRequestDispatcher("/FormularSpiel.jsp").forward(request, response);
+				} else if (name1.length() < 3 || farbe1 == null || typ1 == null) {
+					getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
+				}
+//				System.out.println(name1 + farbe1 + typ1);
+				if (name1.length() >= 3 && farbe1 != null && typ1 != null && abschicken != null) {
+					Spieler spieler1 = new Spieler(name1);
+
+					// IP-Adresse
+					InetAddress ip = InetAddress.getLocalHost();
+					String ipAdress = ip.getHostAddress();
+					getServletContext().setAttribute("name1", name1);
+					getServletContext().setAttribute("ID", ipAdress);
+					getServletContext().setAttribute("spieler1", spieler1);
+					getServletContext().setAttribute("spiel", spiel);
+					getServletContext().setAttribute("farbe1", farbe1);
+					getServletContext().setAttribute("typ1", typ1);
+					getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
+				}
+
+			}else {
+			if(getServletContext().getAttribute("farbe1").equals("schwarz")){
 			getServletContext().getRequestDispatcher("/FormularSpiel2w.jsp").forward(request, response);
 			}
-			if(farbe1.equals("weiss")){
-			spieler1.setFarbe(FarbEnum.weiss);	
-			getServletContext().getRequestDispatcher("/FormularSpiel2s.jsp").forward(request, response);
+			else if(getServletContext().getAttribute("farbe1").equals("weiss")){
+				getServletContext().getRequestDispatcher("/FormularSpiel2s.jsp").forward(request, response);
+				}
 			}
-			
 		}
-	}
+		
+//	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// String neuesSpiel = request.getParameter("neuesSpiel");
 		// String spielBeitreten = request.getParameter("spielBeitreten");

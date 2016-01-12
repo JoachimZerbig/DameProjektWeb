@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@ include file="Header.jspf" %>
-<form id="formular" action="Anmeldung" method="get">
+<form id="formular" action="AnmeldungPl2" method="get">
 	<label for="spname">Spielername</label><input type="text" name="spname" id="spname"/><br/>
 	<label for="schwarz">schwarz</label><input type="radio" name="farbe" id="schwarz" value="schwarz"/><br/>
 	<label for="ki">KI</label><input type="radio" name="typ" id="ki" value="ki"/><br/>
