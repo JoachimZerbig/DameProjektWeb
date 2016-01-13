@@ -14,6 +14,11 @@
 	<li>Hast du dir eine Spielfarbe ausgesucht?</li>
 	<li>Hast du ausgewählt, ob du als Mensch oder KI spielen möchtest?</li>
 </ul>
-<p><a href="FormularSpiel.jsp">Hier geht's zurück zum Formular.</a></p>
+<p><a onclick="goBack()" href="#">Hier geht's zurück zum Formular.</a></p>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </body>
 </html>

@@ -5,10 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="style.css" type="text/css" rel="stylesheet">
-<title>Insert title here</title>
+<title>Formulareingabe Spieler 2</title>
 </head>
 <body>
 <%@ include file="Header.jspf" %>
+<h1>Spieler 2</h1>
 <form id="formular" action="AnmeldungPl2" method="get">
 	<label for="spname">Spielername</label><input type="text" name="spname" id="spname"/><br/>
 	<label for="weiß">weiß</label><input type="radio" name="farbe" id="weiß" value="weiss"/><br/>
