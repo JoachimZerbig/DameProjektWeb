@@ -50,7 +50,7 @@ public class AnmeldungPl2 extends HttpServlet {
 				getServletContext().setAttribute("spieler2", spieler2);
 				getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 			}
-			if (name2.length() == 0 || name2 == null  || farbe2 == null || typ2 == null && abschicken != null) {
+			if (name2.length() >= 3 || name2 == null  || farbe2 == null || typ2 == null && abschicken != null) {
 				getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
 				
 			}
