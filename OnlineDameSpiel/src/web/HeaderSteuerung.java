@@ -65,7 +65,7 @@ public class HeaderSteuerung extends HttpServlet {
 				Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
 				BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
 				ImageIO.write(screenFullImage, format, new File(fileName));
-
+				
 				System.out.println("A full screenshot saved!");
 			} catch (AWTException | IOException ex) {
 				System.err.println(ex);
