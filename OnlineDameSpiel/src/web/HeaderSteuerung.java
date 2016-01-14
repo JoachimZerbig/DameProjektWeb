@@ -1,7 +1,6 @@
 package web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +14,6 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
