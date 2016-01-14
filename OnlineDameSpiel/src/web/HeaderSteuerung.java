@@ -1,11 +1,23 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 /**
  * Servlet implementation class HeaderSteuerung
@@ -19,7 +31,6 @@ public class HeaderSteuerung extends HttpServlet {
 	 */
 	public HeaderSteuerung() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -45,10 +56,25 @@ public class HeaderSteuerung extends HttpServlet {
 		String serLaden = request.getParameter("serLaden");
 
 		if (pdfSpeichern != null) {
+
+			try {
+				Robot robot = new Robot();
+				String format = "jpg";
+				String fileName = "FullScreenshot." + format;
+
+				Rectangle screenRect = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
+				BufferedImage screenFullImage = robot.createScreenCapture(screenRect);
+				ImageIO.write(screenFullImage, format, new File(fileName));
+
+				System.out.println("A full screenshot saved!");
+			} catch (AWTException | IOException ex) {
+				System.err.println(ex);
+			}
+
 			getServletContext().getRequestDispatcher("/SpeichernPDF.jsp").forward(request, response);
-		}
-		if(pdfName.length() <= 3){
-			getServletContext().getRequestDispatcher("/SpeichernPDF_FEHLER.jsp").forward(request, response);
+			if (pdfName.length() <= 3) {
+				getServletContext().getRequestDispatcher("/SpeichernPDF_FEHLER.jsp").forward(request, response);
+			}
 		}
 	}
 }
