@@ -41,24 +41,34 @@ public class AnmeldungPl2 extends HttpServlet {
 			String abschicken = request.getParameter("abschicken");
 			
 			if (name2.length() >= 3 && farbe2 != null && typ2 != null && abschicken != null) {
-				Spieler spieler2 = new Spieler(name2);
-
+			
 				getServletContext().setAttribute("name2", name2);
-				
 				getServletContext().setAttribute("farbe2", farbe2);
-				getServletContext().setAttribute("typ2", typ2);
-				getServletContext().setAttribute("spieler2", spieler2);
-				getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
+				getServletContext().setAttribute("typ2", typ2);				
+			
+			Spieler spieler2;
+			if(getServletContext().getAttribute(farbe2).equals("schwarz")){
+				if(getServletContext().getAttribute(typ2).equals("ki")){
+					spieler2 = new Spieler(name2, FarbEnum.schwarz, true);
+					getServletContext().setAttribute("spieler2", spieler2);
+				}
+				else if(getServletContext().getAttribute(typ2).equals("mensch")){
+					spieler2 = new Spieler(name2, FarbEnum.schwarz, false);
+					getServletContext().setAttribute("spieler2", spieler2);
+				}
 			}
-			if (name2.length() >= 3 || name2 == null  || farbe2 == null || typ2 == null && abschicken != null) {
-				getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
-				
+			else if(getServletContext().getAttribute(farbe2).equals("weiss")){
+				if(getServletContext().getAttribute(typ2).equals("ki")){
+					spieler2 = new Spieler(name2, FarbEnum.weiss, true);
+					getServletContext().setAttribute("spieler1", spieler2);
+				}
+				else if(getServletContext().getAttribute(typ2).equals("mensch")){
+					spieler2 = new Spieler(name2, FarbEnum.weiss, false);
+					getServletContext().setAttribute("spieler1", spieler2);
+				}
 			}
-			
-			
-			Spieler spieler2 = (Spieler) getServletContext().getAttribute("spieler2");
-			
-			
+			} 
+			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 			//SpielBean spiel = (SpielBean) getServletContext().getAttribute("spiel");
 			
 			//String farbe1 = (String) getServletContext().getAttribute("farbe1");
@@ -75,6 +85,7 @@ public class AnmeldungPl2 extends HttpServlet {
 			
 
 		}
+
 	}
 
 	/**
