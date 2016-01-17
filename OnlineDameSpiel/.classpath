@@ -8,11 +8,11 @@
 			<attribute name="owner.project.facets" value="jst.web"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-8-oracle">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_31">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/informatik/Downloads/itextpdf-5.5.7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Admin/Desktop/Downloads/itext-5.5.8/itextpdf-5.5.8.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
