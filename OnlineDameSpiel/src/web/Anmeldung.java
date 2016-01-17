@@ -60,27 +60,35 @@ public class Anmeldung extends HttpServlet {
 					getServletContext().setAttribute("farbe1", farbe1);
 					getServletContext().setAttribute("typ1", typ1);
 					
-					if(getServletContext().getAttribute(farbe1) == "schwarz"){
-						if(getServletContext().getAttribute(typ1).equals("ki")){
+					System.out.println(getServletContext().getAttribute("name1"));
+					System.out.println(getServletContext().getAttribute("farbe1"));
+					System.out.println(getServletContext().getAttribute("typ1"));
+					
+					if(getServletContext().getAttribute("farbe1").equals("schwarz")){
+						if(getServletContext().getAttribute("typ1").equals("ki")){
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, true);
 							getServletContext().setAttribute("spieler1", spieler1);
+							System.out.println("weiter gehts");
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
-						else if(getServletContext().getAttribute(typ1).equals("mensch")){
+						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, false);
 							getServletContext().setAttribute("spieler1", spieler1);
+							System.out.println("weiter gehts");
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 					}
-					else if(getServletContext().getAttribute(farbe1) == "weiss"){
-						if(getServletContext().getAttribute(typ1).equals("ki")){
+					else if(getServletContext().getAttribute("farbe1").equals("weiss")){
+						if(getServletContext().getAttribute("typ1").equals("ki")){
 							spieler1 = new Spieler(name1, FarbEnum.weiss, true);
 							getServletContext().setAttribute("spieler1", spieler1);
+							System.out.println("weiter gehts");
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
-						else if(getServletContext().getAttribute(typ1) == "mensch"){
+						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.weiss, false);
 							getServletContext().setAttribute("spieler1", spieler1);
+							System.out.println("weiter gehts");
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 					}

@@ -33,6 +33,7 @@ textarea{
 </style>
 </head>
 <body>
+<%@ include file="Header.jspf" %>
 	<table>
 		<%
 			for (int i = 11; i >= 0; i--) {
@@ -68,5 +69,6 @@ textarea{
 		<% %>
 		</textarea>
 	</form>
+<%@ include file="Footer.jspf" %>
 </body>
 </html>
