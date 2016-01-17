@@ -49,6 +49,8 @@ public class HeaderSteuerung extends HttpServlet {
 
 		String pdfSpeichern = request.getParameter("pdfSpeichern");
 		String pdfName = request.getParameter("pdfName");
+		
+		String pdfServerSpeichern = request.getParameter("pdfServerSpeichern");
 
 		String csvSpeichern = request.getParameter("csvSpeichern");
 		String serSpeichern = request.getParameter("serSpeichern");
@@ -59,6 +61,9 @@ public class HeaderSteuerung extends HttpServlet {
 		
 		String filePath = request.getSession().getServletContext().getRealPath("/imageTest.jpg");
 		System.out.println(filePath);
+		
+		getServletContext().setAttribute("pdfName", pdfName);
+		getServletContext().setAttribute("filePath", filePath);
 		
 		if (pdfSpeichern != null) {
 			
@@ -76,7 +81,8 @@ public class HeaderSteuerung extends HttpServlet {
 			getServletContext().getRequestDispatcher("/SpeichernPDF.jsp").forward(request, response);
 		}else if(pdfName.length() < 3){
 			getServletContext().getRequestDispatcher("/SpeichernPDF_FEHLER.jsp").forward(request, response);
-			
+		}else if(pdfServerSpeichern != null){
+			getServletContext().getRequestDispatcher("/PDFLink.jsp").forward(request, response);
 		}
 		
 	}

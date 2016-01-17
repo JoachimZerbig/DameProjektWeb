@@ -9,7 +9,7 @@
 <body>
 <form method="get" action="HeaderSteuerung">
 	<label for="pdf">Name der PDF </label><input type="text" name="pdfName" id="pdf"/>
-	<input type="submit" value="speichern"/>
+	<input type="submit" name="pdfServerSpeichern" value="speichern"/>
 </form>
 </body>
 </html>
