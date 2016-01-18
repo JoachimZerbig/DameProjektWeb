@@ -47,22 +47,23 @@ public class AnmeldungPl2 extends HttpServlet {
 				getServletContext().setAttribute("typ2", typ2);				
 			
 			Spieler spieler2;
-			if(getServletContext().getAttribute(farbe2).equals("schwarz")){
-				if(getServletContext().getAttribute(typ2).equals("ki")){
+			
+			if(getServletContext().getAttribute("farbe2").equals("schwarz")){
+				if(getServletContext().getAttribute("typ2").equals("ki")){
 					spieler2 = new Spieler(name2, FarbEnum.schwarz, true);
 					getServletContext().setAttribute("spieler2", spieler2);
 				}
-				else if(getServletContext().getAttribute(typ2).equals("mensch")){
+				else if(getServletContext().getAttribute("typ2").equals("mensch")){
 					spieler2 = new Spieler(name2, FarbEnum.schwarz, false);
 					getServletContext().setAttribute("spieler2", spieler2);
 				}
 			}
-			else if(getServletContext().getAttribute(farbe2).equals("weiss")){
-				if(getServletContext().getAttribute(typ2).equals("ki")){
+			else if(getServletContext().getAttribute("farbe2").equals("weiss")){
+				if(getServletContext().getAttribute("typ2").equals("ki")){
 					spieler2 = new Spieler(name2, FarbEnum.weiss, true);
 					getServletContext().setAttribute("spieler1", spieler2);
 				}
-				else if(getServletContext().getAttribute(typ2).equals("mensch")){
+				else if(getServletContext().getAttribute("typ2").equals("mensch")){
 					spieler2 = new Spieler(name2, FarbEnum.weiss, false);
 					getServletContext().setAttribute("spieler1", spieler2);
 				}

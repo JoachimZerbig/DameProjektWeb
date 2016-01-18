@@ -49,7 +49,7 @@ public class Anmeldung extends HttpServlet {
 					getServletContext().getRequestDispatcher("/FormularFehler.jsp").forward(request, response);
 				}
 //				System.out.println(name1 + farbe1 + typ1);
-				else if (name1.length() >= 3 && farbe1 != null && typ1 != null && abschicken != null) {
+				if (name1.length() >= 3 && farbe1 != null && typ1 != null && abschicken != null) {
 					Spieler spieler1;
 					
 					InetAddress ip = InetAddress.getLocalHost();
@@ -69,12 +69,14 @@ public class Anmeldung extends HttpServlet {
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, true);
 							getServletContext().setAttribute("spieler1", spieler1);
 							System.out.println("weiter gehts");
+							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, false);
 							getServletContext().setAttribute("spieler1", spieler1);
 							System.out.println("weiter gehts");
+							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 					}
@@ -83,26 +85,37 @@ public class Anmeldung extends HttpServlet {
 							spieler1 = new Spieler(name1, FarbEnum.weiss, true);
 							getServletContext().setAttribute("spieler1", spieler1);
 							System.out.println("weiter gehts");
+							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.weiss, false);
 							getServletContext().setAttribute("spieler1", spieler1);
 							System.out.println("weiter gehts");
+							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 					}
 
 			}
-			else {
+			
+			}
+			else{
+				System.out.println("sdvsdvgsegwegegwgds");
 				if(getServletContext().getAttribute("farbe1").equals("schwarz")){
+					System.out.println("FormularSpiel2w.jsp");
 					getServletContext().getRequestDispatcher("/FormularSpiel2w.jsp").forward(request, response);
 				}
 				else if(getServletContext().getAttribute("farbe1").equals("weiss")){
+					System.out.println("FormularSpiel2s.jsp");
 				getServletContext().getRequestDispatcher("/FormularSpiel2s.jsp").forward(request, response);
 				}
 			}
-			}
+			
+			
+			
+			
+			
 		}
 		
 //	}
