@@ -60,22 +60,16 @@ public class Anmeldung extends HttpServlet {
 					getServletContext().setAttribute("farbe1", farbe1);
 					getServletContext().setAttribute("typ1", typ1);
 					
-					System.out.println(getServletContext().getAttribute("name1"));
-					System.out.println(getServletContext().getAttribute("farbe1"));
-					System.out.println(getServletContext().getAttribute("typ1"));
-					
 					if(getServletContext().getAttribute("farbe1").equals("schwarz")){
 						if(getServletContext().getAttribute("typ1").equals("ki")){
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, true);
 							getServletContext().setAttribute("spieler1", spieler1);
-							System.out.println("weiter gehts");
 							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.schwarz, false);
 							getServletContext().setAttribute("spieler1", spieler1);
-							System.out.println("weiter gehts");
 							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
@@ -84,14 +78,12 @@ public class Anmeldung extends HttpServlet {
 						if(getServletContext().getAttribute("typ1").equals("ki")){
 							spieler1 = new Spieler(name1, FarbEnum.weiss, true);
 							getServletContext().setAttribute("spieler1", spieler1);
-							System.out.println("weiter gehts");
 							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
 						else if(getServletContext().getAttribute("typ1").equals("mensch")){
 							spieler1 = new Spieler(name1, FarbEnum.weiss, false);
 							getServletContext().setAttribute("spieler1", spieler1);
-							System.out.println("weiter gehts");
 							getServletContext().setAttribute("spiel", spiel);
 							getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
 						}
@@ -101,13 +93,10 @@ public class Anmeldung extends HttpServlet {
 			
 			}
 			else{
-				System.out.println("sdvsdvgsegwegegwgds");
 				if(getServletContext().getAttribute("farbe1").equals("schwarz")){
-					System.out.println("FormularSpiel2w.jsp");
 					getServletContext().getRequestDispatcher("/FormularSpiel2w.jsp").forward(request, response);
 				}
 				else if(getServletContext().getAttribute("farbe1").equals("weiss")){
-					System.out.println("FormularSpiel2s.jsp");
 				getServletContext().getRequestDispatcher("/FormularSpiel2s.jsp").forward(request, response);
 				}
 			}

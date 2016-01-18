@@ -70,21 +70,6 @@ public class AnmeldungPl2 extends HttpServlet {
 			}
 			} 
 			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
-			//SpielBean spiel = (SpielBean) getServletContext().getAttribute("spiel");
-			
-			//String farbe1 = (String) getServletContext().getAttribute("farbe1");
-		
-			
-			
-			getServletContext().setAttribute("name2", name2);
-			//getServletContext().setAttribute("spieler2", spieler2);
-			//getServletContext().setAttribute("spiel", spiel);
-			getServletContext().setAttribute("farbe2", farbe2);
-			getServletContext().setAttribute("typ2", farbe2);
-			//System.out.println(farbe2);
-			getServletContext().getRequestDispatcher("/SpielBrett.jsp").forward(request, response);
-			
-
 		}
 
 	}
