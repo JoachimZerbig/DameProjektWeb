@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>Spielbrett</title>
+
 <style>
 table {
 	border-collapse: collapse;
@@ -14,10 +15,10 @@ table {
 
 td, a {
 	display: inline-block;
-	width: 50px;
-	height: 50px;
-	min-width: 50px;
-	min-height: 50px;
+	width: 100px;
+	height: 100px;
+	min-width: 100px;
+	min-height: 100px;
 }
 
 a:hover {
@@ -34,35 +35,41 @@ textarea{
 </head>
 <body>
 <%@ include file="Header.jspf" %>
+	
 	<table>
-		<%
-			for (int i = 11; i >= 0; i--) {
-		%>
-		<tr>
-			<%
-				for (int j = 0; j <= 11; j++) {
-						String ij = "" + i + j;
-						if (i % 2 == j % 2) {
-			%>
-
-			<td style="background: brown">
-				<a href="SpielZug?zug=<%out.print(ij);%>"><%out.print(ij);%></a></td>
-
-			<%
-				} else {
-			%>
-
-			<td style="background: beige">
-				<a href="SpielZug?zug=<%out.print(ij);%>"><%out.print(ij);%></a></td>
-			<%
+	<% 
+	char x = 'a';
+	int y = 12;
+	for (int i = 12; i > 0; i--) {
+	out.print("</tr>");
+		for (int j = 0; j < 12; j++) {
+			if ((i+j) % 2 !=0) {
+				
+								
+				if(y>=8){
+				out.print("<td style=background: brown><a href=SpielZug?zug="+x+""+y+"><img src='images/Dame_Stein_braun_50w.png' alt='Bild'></a></td>");
 				}
-					}
-			%>
-		</tr>
-		<%
+				else if(y<8 & y>5){
+					out.print("<td style=background: brown><a href=SpielZug?zug="+x+""+y+">"+x+y+" </a></td>");	
+				}
+				else if(y<=5){
+				out.print("<td style=background: brown><a href=SpielZug?zug="+x+""+y+"><img src='images/Dame_Stein_weiss_50.png' alt='Bild'></a></td>");
+				}
 			}
-		%>
+			else {
+				out.print("<td style=background: beige></td>");
+			}
+			
+		x++;
+		}
+	
+	out.print("</tr>");
+	y--;
+	x='a';
+	}
+	%>	
 	</table>
+	<input type="button" value="refresh" name="refresh" />
 	<form>
 		<textarea readonly>
 		Logging des anderen Spielers!!!

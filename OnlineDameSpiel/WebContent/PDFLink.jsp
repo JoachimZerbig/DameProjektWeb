@@ -10,6 +10,6 @@
 
 <%--out.println(getServletContext().getAttribute("filePath"));--%>
 
-<a href="<%out.print(getServletContext().getAttribute("filePath"));%>">Hier </a> geht's zur PDF.
+<a href="<%out.print(getServletContext().getAttribute("filePath2"));%>">Hier </a> geht's zur PDF.
 </body>
 </html>

@@ -1546,7 +1546,7 @@ public class SpielBean implements iBediener, iDatenzugriff, Serializable {
 	 * @param Spieler
 	 *          s1
 	 */
-	private void add(Spieler s1) {
+	public void add(Spieler s1) {
 		if (spieler[0] == null) {
 			spieler[0] = s1;
 		} else {
@@ -1646,7 +1646,37 @@ public class SpielBean implements iBediener, iDatenzugriff, Serializable {
 	public void setSpielbrett(SpielBrett spielbrett) {
 		this.spielbrett = spielbrett;
 	}
-
+	// neuer Spielbrett anlegen MVC
+	public SpielBrett getNewSpielbrett(){
+		SpielBrett spielbrett = new SpielBrett();
+		return spielbrett;
+	}
+	// neuen Spieler anlegen
+	public Spieler getNewSpieler(String name, FarbEnum farbe, boolean ki){
+	 Spieler spieler1 = new Spieler(name,farbe,ki);
+	 return spieler1;
+	}	
+	//Get FarbeEnum mit zuweisung von Object zum Farbenum
+	public FarbEnum getFarbEnum(Object farbe){
+		FarbEnum farbe2 = FarbEnum.nichts;
+		if(farbe == "weiss"){
+		 farbe2= FarbEnum.weiss;
+		}
+		if(farbe == "schwarz"){
+			 farbe2= FarbEnum.schwarz;
+			}
+		return farbe2;
+	}
+	//Spielfigur anlegen
+//	public Spielfigur setSpielfigur(FarbEnum farbe, boolean b){
+//		Spielfigur figur = new Spielfigur(farbe,b);
+//		return figur;
+//	}
+//	public SpielBrett getSpielBrett(){
+//		
+//		return spielbrett;
+//	}
+//	
 	public Spieler[] getSpieler() {
 		return spieler;
 	}
@@ -1872,5 +1902,6 @@ public class SpielBean implements iBediener, iDatenzugriff, Serializable {
 	public void close() throws IOException {
 
 	}
+	
 
 }
